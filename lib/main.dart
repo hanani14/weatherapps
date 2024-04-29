@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weatherapps/frontend/weather_page.dart';
 import 'package:weatherapps/provider/weather_provider.dart';
 
-final transcationProvider = ChangeNotifierProvider((ref) => WeatherProvider());
+final weatherProvider = ChangeNotifierProvider((ref) => WeatherProvider());
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Weather Reality',
-
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.orange,

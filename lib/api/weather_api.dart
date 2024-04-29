@@ -8,28 +8,9 @@ import 'package:weatherapps/global_function/global.dart';
 
 class WeatherAPI{
 
-  // Future<Map> fetchdataweather() async {
-  //     String url = Global().customerupgradeavailableurl;
 
-  //      var headers = {
-  //         'Accept': 'application/json',
-  //       };
-
-  //      var body = {
-  //       };
-        
-  //     final response = await APIManager().postAPICallWithHeader(url,body, headers).timeout(Duration(seconds: Global().timeout));
-
-  //     AppDebug().printDebug(msg: 'customer card body : $url');
-  //     AppDebug().printDebug(msg: 'customer card response : $response');
-
-  //     return response;
-  // }
-
-   Future<Map>  fetchdataweather(bool current, String cityName) async {
-    try {
+   Future<Map> fetchdataweather(bool current, String cityName) async {
       Position currentPosition = await getCurrentPosition();
-  
       if (current) {
         List<Placemark> placemarks = await placemarkFromCoordinates(
             currentPosition.latitude, currentPosition.longitude);
@@ -43,15 +24,7 @@ class WeatherAPI{
 
       final response = await APIManager().getAPICall(url).timeout(Duration(seconds: Global().timeout));
       return response;
-      // if (response.statusCode == 200) {
-      //   final Map<String, dynamic> decodedJson = json.decode(response.body);
-      //   return WeatherModel.fromMap(decodedJson);
-      // } else {
-      //   throw Exception('Failed to load weather data');
-      // }
-    } catch (e) {
-      throw Exception('Failed to load weather data');
-    }
+   
   }
 
   Future<Position> getCurrentPosition() async {
